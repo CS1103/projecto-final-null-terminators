@@ -23,7 +23,7 @@
 ### Datos generales
 
 * **Tema**: Redes Neuronales en AI
-* **Grupo**: `group_3_custom_name`
+* **Grupo**: `Null Terminators`
 * **Integrantes**:
 
   * Alumno A – 209900001 (Responsable de investigación teórica)
