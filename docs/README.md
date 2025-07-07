@@ -88,12 +88,11 @@
 
 #### 2.2 Manual de uso y casos de prueba
 
-* **Cómo ejecutar**: `./build/neural_net_demo input.csv output.csv`
+* **Cómo ejecutar**: `./digit_classifier train mnist_train.csv`
 * **Casos de prueba**:
 
-  * Test unitario de capa densa.
-  * Test de función de activación ReLU.
-  * Test de convergencia en dataset de ejemplo.
+  * Entrenamiento en el dataset MNIST.
+  * Clasificación de imágenes JPG externas.
 
 > *Personalizar rutas, comandos y casos reales.*
 
@@ -104,9 +103,8 @@
 > **Demo de ejemplo**: Video/demo alojado en `docs/demo.mp4`.
 > Pasos:
 >
-> 1. Preparar datos de entrenamiento (formato CSV).
-> 2. Ejecutar comando de entrenamiento.
-> 3. Evaluar resultados con script de validación.
+> 1. Entrenar el modelo: `./digit_classifier train mnist_train.csv`.
+> 2. Clasificar imágenes: `./digit_classifier imagen.jpg`.
 
 ---
 
