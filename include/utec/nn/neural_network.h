@@ -1,22 +1,49 @@
 #pragma once
-#include <cstddef>
-#include "../algebra/Tensor.h"
-#include <string>
+#include <vector>
+#include <memory>
+#include "utec/algebra/Tensor.h"
+#include "utec/nn/layer.h"
+#include "utec/nn/dense.h"
+#include "utec/nn/activation.h"
+#include "utec/nn/loss.h"
 
 namespace utec {
 namespace nn {
 
 class NeuralNetwork {
 public:
-    NeuralNetwork(std::size_t input_size = 784, std::size_t num_classes = 10);
-    void train(const algebra::Tensor& x, const algebra::Tensor& y,
-               std::size_t epochs = 1, float lr = 0.01f);
-    algebra::Tensor predict(const algebra::Tensor& x) const;
-    void save(const std::string& path) const;
-    void load(const std::string& path);
+    NeuralNetwork(size_t input_size, size_t num_classes) {
+        layers_.emplace_back(std::make_unique<Dense>(input_size, 128));
+        layers_.emplace_back(std::make_unique<Activation>(ActivationType::ReLU));
+        layers_.emplace_back(std::make_unique<Dense>(128, 64));
+        layers_.emplace_back(std::make_unique<Activation>(ActivationType::ReLU));
+        layers_.emplace_back(std::make_unique<Dense>(64, num_classes));
+        layers_.emplace_back(std::make_unique<Activation>(ActivationType::Softmax));
+    }
+
+    // Permite agregar capas personalizadas
+    void add_layer(std::unique_ptr<Layer> layer) {
+        layers_.emplace_back(std::move(layer));
+    }
+
+    algebra::Tensor forward(const algebra::Tensor& input) {
+        algebra::Tensor x = input;
+        for (auto& layer : layers_)
+            x = layer->forward(x);
+        return x;
+    }
+
+    void train_step(const algebra::Tensor& input, const algebra::Tensor& target, float lr) {
+        std::vector<algebra::Tensor> activations = {input};
+        for (auto& layer : layers_)
+            activations.push_back(layer->forward(activations.back()));
+        algebra::Tensor grad = loss::cross_entropy_derivative(activations.back(), target);
+        for (int i = static_cast<int>(layers_.size()) - 1; i >= 0; --i)
+            grad = layers_[i]->backward(grad, lr);
+    }
+
 private:
-    algebra::Tensor W_;
-    algebra::Tensor b_;
+    std::vector<std::unique_ptr<Layer>> layers_;
 };
 
 } // namespace nn
