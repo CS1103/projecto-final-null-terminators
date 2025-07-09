@@ -55,7 +55,7 @@ utec::algebra::Tensor load_png_as_tensor(const std::string& filename) {
 }
 
 int main() {
-    // 1. Cargar datos reales de MNIST
+    // Cargar datos reales de MNIST
     std::cout << "Cargando datos de MNIST..." << std::endl;
     auto train_images = mnist_loader::load_mnist_images("data/train-images-idx3-ubyte");
     auto train_labels = mnist_loader::load_mnist_labels("data/train-labels-idx1-ubyte");
@@ -65,7 +65,7 @@ int main() {
     // Seleccionar numero de cada digito actual: 7000 (7k para la cantidad exacta de cada numero)
     std::vector<size_t> selected_indices;
     std::array<int, 10> count_per_digit = {0};
-    size_t num_per_digit = 1000; 
+    size_t num_per_digit = 1000; // Trabajamos con 10k datos
 
     // Mezclar los índices para que la selección sea aleatoria
     std::vector<size_t> indices(train_labels.shape()[0]);
@@ -75,7 +75,7 @@ int main() {
     std::shuffle(indices.begin(), indices.end(), g);
 
     for (size_t idx : indices) {
-        // Buscar el dígito de la etiqueta one-hot
+        // Buscar el dígito de la etiqueta
         int digit = -1;
         for (int d = 0; d < 10; ++d) {
             if (train_labels.at({idx, size_t(d)}) == 1.0f) {
@@ -122,11 +122,11 @@ int main() {
     std::cout << "Entrenando la red neuronal..." << std::endl;
     // Convertir los tensores a vectores de tensores para el API actual
     // std::vector<utec::algebra::Tensor> train_images_vec, train_labels_vec; // This block is now moved above
-    // 5 epochs, 0.01 learning rate, 256 batch size
-    classifier.train(train_images_vec, train_labels_vec, 10, 0.01f, 512); 
+    // 5 epochs, 0.01 learning rate, 512 batch size
+    classifier.train(train_images_vec, train_labels_vec, 5, 0.01f, 512); 
     std::cout << "Entrenamiento finalizado." << std::endl;
 
-    // DEBUG: Detección automática de images/0m.png a images/9m.png 
+    // Detección automática de images/0m.png a images/9m.png 
     std::cout << "\n--- Prueba automática de images/0m.png a images/9m.png ---" << std::endl;
     for (int i = 0; i < 10; ++i) {
         std::string path = "images/" + std::to_string(i) + "m.png";
