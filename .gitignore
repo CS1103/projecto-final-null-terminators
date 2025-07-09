@@ -20,10 +20,6 @@ Makefile
 *.swp
 *~
 
-# Data (no subir datasets grandes)
-data/
-# Si quieres compartir scripts para descargar los datos, pero no los datos en sí
-
 # Test outputs, logs, etc.
 *.log
 
