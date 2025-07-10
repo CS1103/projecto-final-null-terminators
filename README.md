@@ -115,7 +115,7 @@ El corazón de nuestro clasificador son los datos MNIST. Así es como los obtien
 
 ### Epic 1: Biblioteca Genérica de Álgebra (`utec::algebra::Tensor`)
 
-**Contexto:** Este Epic se centra en la construcción de una base sólida para cualquier operación numérica compleja, esencial para el funcionamiento interno de una red neuronal. Nuestra implementación del `Tensor` busca replicar la versatilidad de librerías como NumPy en C++.
+Este Epic se centra en la construcción de una base sólida para cualquier operación numérica compleja, esencial para el funcionamiento interno de una red neuronal. Nuestra implementación del `Tensor` busca replicar la versatilidad de librerías como NumPy en C++.
 
 | Requisito del Enunciado                                        | Detalles de Implementación                                                                                                                                                                                                                                                                                                  |
 | :------------------------------------------------------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -130,7 +130,7 @@ El corazón de nuestro clasificador son los datos MNIST. Así es como los obtien
 ---
 ### Epic 2: Red Neuronal Full (`utec::nn`)
 
-**Contexto:** Este Epic se enfoca en la construcción del core de la inteligencia artificial: el framework de redes neuronales, incluyendo sus componentes esenciales como capas y funciones de activación/pérdida.
+Este Epic se enfoca en la construcción del core de la inteligencia artificial: el framework de redes neuronales, incluyendo sus componentes esenciales como capas y funciones de activación/pérdida.
 
 | Requisito del Enunciado                                        | Detalles de Implementación                                                                                                                                                                                                                                                                                                    |
 | :------------------------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
@@ -143,7 +143,7 @@ El corazón de nuestro clasificador son los datos MNIST. Así es como los obtien
 ---
 ### Epic 3: Agente (`utec::agent::DigitClassifier`)
 
-**Contexto:** Originalmente concebido para un agente de Pong, este Epic se adapta para la creación de un clasificador de dígitos, demostrando cómo la red neuronal puede ser encapsulada y utilizada para una tarea específica de percepción.
+Originalmente concebido para un agente de Pong, este Epic se adapta para la creación de un clasificador de dígitos, demostrando cómo la red neuronal puede ser encapsulada y utilizada para una tarea específica de percepción.
 
 | Requisito del Enunciado                                        | Detalles de Implementación                                                                                                                                                                                                                                                                  |
 | :------------------------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
@@ -155,7 +155,7 @@ El corazón de nuestro clasificador son los datos MNIST. Así es como los obtien
 ---
 ### Epic 4: Paralelismo y CUDA Opcional
 
-**Contexto:** Este Epic explora la optimización del rendimiento de la red neuronal a través de la computación paralela, incluyendo el uso de hilos o la aceleración por GPU (CUDA).
+Este Epic explora la optimización del rendimiento de la red neuronal a través de la computación paralela, incluyendo el uso de hilos o la aceleración por GPU (CUDA).
 
 | Requisito del Enunciado                                        | Detalles de Implementación                                                                                                                                                                                                                                                                  |
 | :------------------------------------------------------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -165,7 +165,7 @@ El corazón de nuestro clasificador son los datos MNIST. Así es como los obtien
 ---
 ### Epic 5: Entrenamiento, Validación y Documentación
 
-**Contexto:** Este Epic abarca las fases cruciales del ciclo de vida de un modelo de Machine Learning: cómo se entrena, cómo se evalúa su rendimiento y cómo se documenta para su comprensión y uso.
+Este Epic abarca las fases cruciales del ciclo de vida de un modelo de Machine Learning: cómo se entrena, cómo se evalúa su rendimiento y cómo se documenta para su comprensión y uso.
 
 | Requisito del Enunciado                                        | Detalles de Implementación                                                                                                                                                                                                                                                                  |
 | :------------------------------------------------------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
