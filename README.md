@@ -131,6 +131,7 @@ La organización del código está pensada para la modularidad y la claridad:
 ## 🏆Cumplimiento de los epics
 
 ### Epic 1: Biblioteca Genérica de Álgebra (`utec::algebra::Tensor`)
+Este Epic se centra en la construcción de una base sólida para cualquier operación numérica compleja, esencial para el funcionamiento interno de una red neuronal. Nuestra implementación del `Tensor` busca replicar la versatilidad de librerías como NumPy en C++.
 
 | Requisito del Enunciado                                        | Detalles de Implementación                                                                                                                                                                                                                                                                                                  |
 | :------------------------------------------------------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -144,6 +145,7 @@ La organización del código está pensada para la modularidad y la claridad:
 
 ---
 ### Epic 2: Red Neuronal Full (`utec::nn`)
+Este Epic se enfoca en la construcción del core de la inteligencia artificial: el framework de redes neuronales, incluyendo sus componentes esenciales como capas y funciones de activación/pérdida.
 
 | Requisito del Enunciado                                        | Detalles de Implementación                                                                                                                                                                                                                                                                                                    |
 | :------------------------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
@@ -155,6 +157,8 @@ La organización del código está pensada para la modularidad y la claridad:
 
 ---
 ### Epic 3: Agente (`utec::agent::DigitClassifier`)
+Originalmente concebido para un agente de Pong, este Epic se adapta para la creación de un clasificador de dígitos, demostrando cómo la red neuronal puede ser encapsulada y utilizada para una tarea específica de percepción.
+
 | Requisito del Enunciado                                        | Detalles de Implementación                                                                                                                                                                                                                                                                  |
 | :------------------------------------------------------------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Clase `PongAgent` (adaptado a `DigitClassifier`)              | La clase `DigitClassifier` cumple el rol de `PongAgent`, pero para el dominio de clasificación de dígitos.                                                                                                                                                                                       |
@@ -164,6 +168,7 @@ La organización del código está pensada para la modularidad y la claridad:
 
 ---
 ### Epic 4: Paralelismo y CUDA Opcional
+Este Epic explora la optimización del rendimiento de la red neuronal a través de la computación paralela, incluyendo el uso de hilos o la aceleración por GPU (CUDA).
 
 | Requisito del Enunciado                                        | Detalles de Implementación                                                                                                                                                                                                                                                                  |
 | :------------------------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
@@ -172,6 +177,7 @@ La organización del código está pensada para la modularidad y la claridad:
 
 ---
 ### Epic 5: Entrenamiento, Validación y Documentación
+Este Epic abarca las fases cruciales del ciclo de vida de un modelo de Machine Learning: cómo se entrena, cómo se evalúa su rendimiento y cómo se documenta para su comprensión y uso.
 
 | Requisito del Enunciado                                        | Detalles de Implementación                                                                                                                                                                                                                                                                  |
 | :------------------------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
