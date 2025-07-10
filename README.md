@@ -3,7 +3,7 @@
 ---
 # 🧠 Proyecto Final 2025-1: AI Neural Network
 
-Este informe detalla el desarrollo de un agente de Inteligencia Artificial para jugar Pong utilizando C++. El proyecto se estructura en varios "Epics" o módulos clave, que incluyen la creación de una biblioteca genérica de álgebra, una red neuronal completa, un agente Pong basado en la red, y aspectos de paralelismo, entrenamiento y documentación.
+El proyecto detalla el desarrollo de un agente de Inteligencia Artificial para jugar Pong utilizando C++. El proyecto se estructura en varios "Epics" o módulos clave, que incluyen la creación de una biblioteca genérica de álgebra, una red neuronal completa, un agente Pong basado en la red, y aspectos de paralelismo, entrenamiento y documentación.
 
 ---
 
