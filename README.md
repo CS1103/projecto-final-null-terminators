@@ -115,7 +115,7 @@ El corazón de nuestro clasificador son los datos MNIST. Así es como los obtien
 
 Aunque el enunciado original del proyecto se centraba en un "Pong AI", la infraestructura y el desarrollo de la red neuronal y la biblioteca de álgebra implementadas cumplen con los objetivos fundamentales de los Epics del curso. A continuación, se detalla cómo cada Epic se aborda en este proyecto de clasificación de dígitos MNIST:
 
-### Epic 1: ✨ Biblioteca Genérica de Álgebra (`utec::algebra::Tensor`)
+### Epic 1: Biblioteca Genérica de Álgebra (`utec::algebra::Tensor`)
 
 **Contexto:** Este Epic se centra en la construcción de una base sólida para cualquier operación numérica compleja, esencial para el funcionamiento interno de una red neuronal. Nuestra implementación del `Tensor` busca replicar la versatilidad de librerías como NumPy en C++.
 
@@ -130,7 +130,7 @@ Aunque el enunciado original del proyecto se centraba en un "Pong AI", la infrae
 | `transpose_2d()` (para Rank=2)                                 | Implementada una función `transpose` separada dentro de la clase `Dense` que utiliza para transponer tensores 2D.                                                                                                                                                                         |
 
 ---
-### Epic 2: ✨ Red Neuronal Full (`utec::nn`)
+### Epic 2: Red Neuronal Full (`utec::nn`)
 
 **Contexto:** Este Epic se enfoca en la construcción del core de la inteligencia artificial: el framework de redes neuronales, incluyendo sus componentes esenciales como capas y funciones de activación/pérdida.
 
@@ -143,7 +143,7 @@ Aunque el enunciado original del proyecto se centraba en un "Pong AI", la infrae
 | Clase `NeuralNetwork` (`add_layer`, `forward`, `backward`, `optimize`, `train`) | La clase `NeuralNetwork` permite construir la red con `add_layer`. `forward` propaga la entrada. `train_step` encapsula el `backward` y la actualización de pesos (que se delega a las capas individuales). El método `train` de `DigitClassifier` orquesta el entrenamiento sobre múltiples épocas e imágenes. |
 
 ---
-### Epic 3: ✨ Agente (`utec::agent::DigitClassifier`)
+### Epic 3: Agente (`utec::agent::DigitClassifier`)
 
 **Contexto:** Originalmente concebido para un agente de Pong, este Epic se adapta para la creación de un clasificador de dígitos, demostrando cómo la red neuronal puede ser encapsulada y utilizada para una tarea específica de percepción.
 
@@ -155,7 +155,7 @@ Aunque el enunciado original del proyecto se centraba en un "Pong AI", la infrae
 | Bucle de simulación con `forward`                             | El `main.cpp` demuestra este bucle tanto para las imágenes de prueba automáticas como para el modo interactivo, donde `forward` (vía `predict`) es invocado para cada nueva entrada.                                                                                                                              |
 
 ---
-### Epic 4: ✨ Paralelismo y CUDA Opcional
+### Epic 4: Paralelismo y CUDA Opcional
 
 **Contexto:** Este Epic explora la optimización del rendimiento de la red neuronal a través de la computación paralela, incluyendo el uso de hilos o la aceleración por GPU (CUDA).
 
@@ -165,7 +165,7 @@ Aunque el enunciado original del proyecto se centraba en un "Pong AI", la infrae
 | Soporte CUDA                                                   | La implementación es puramente en CPU.                                                                                                                                                                                                                                                      |
 
 ---
-### Epic 5: ✨ Entrenamiento, Validación y Documentación
+### Epic 5: Entrenamiento, Validación y Documentación
 
 **Contexto:** Este Epic abarca las fases cruciales del ciclo de vida de un modelo de Machine Learning: cómo se entrena, cómo se evalúa su rendimiento y cómo se documenta para su comprensión y uso.
 
