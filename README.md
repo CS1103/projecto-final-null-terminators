@@ -70,14 +70,14 @@ La organización del código está pensada para la modularidad y la claridad:
 
 ## 🚀 Para empezar
 
-### ⚙️ Requisitos del Sistema
+### Requisitos del Sistema
 
 Para compilar y ejecutar este proyecto, necesitarás lo siguiente:
 
   * **Compilador C++20**: Asegúrate de tener una versión reciente de tu compilador preferido que soporte C++20 (por ejemplo, GCC 10+ o Clang 10+).
   * **CMake**: Indispensable para la gestión del proyecto y la compilación. Se requiere la versión 3.10 o superior.
 
-### 🏗️ Compilación del Proyecto
+### Compilación del Proyecto
 
 Una vez que tengas los requisitos, compilar es pan comido:
 
@@ -90,7 +90,7 @@ make                # Compila el código fuente
 
 Esto generará el ejecutable `digit_classifier` (o similar, dependiendo de tu `CMakeLists.txt`) dentro del directorio `build`.
 
-### 💾 Preparación de los Datos
+### Preparación de los Datos
 
 El corazón de nuestro clasificador son los datos MNIST. Así es como los obtienes y los preparas:
 
