@@ -1,5 +1,6 @@
 # Proyecto Final 2025-1: AI Neural Network                                                                                                                                                                                    
 CS2013 Programación III · Informe Final
+🎥 [Video del Proyecto - Carpeta en Google Drive](https://drive.google.com/drive/folders/1wN68x5he2KN9tSf-B_5QmQmVKK6lybtm?usp=sharing)
 
 ---
 
