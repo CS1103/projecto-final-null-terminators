@@ -66,12 +66,6 @@ La organización del código está pensada para la modularidad y la claridad:
 ├── CMakeLists.txt                      // Archivo de configuración de CMake
 └── README.md                           // Este archivo
 ```                         
----
-
-Tienes razón. La sección actual es un poco seca y podría ser más invitadora y clara, especialmente en la parte de los requisitos. Además, es importante especificar la versión de C++ (`C++20`).
-
-Aquí te propongo una versión mejorada para la sección "Cómo Empezar", que la hace más dinámica, relevante y fácil de seguir:
-
 -----
 
 ## 🚀 Para empezar
