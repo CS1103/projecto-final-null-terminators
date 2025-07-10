@@ -33,19 +33,20 @@ Implementación de una red neuronal multicapa en C++ para clasificación de díg
     cd build           # Navega al directorio 'build'
     cmake ..           # Configura el proyecto usando CMake
     make               # Compila el código fuente
+    cd ..
     ```
   Esto generará el ejecutable `digit_classifier` (o similar, dependiendo de tu `CMakeLists.txt`) dentro del directorio `build`.
 
 
 ### 💾 Preparación de los Datos
 
-1.  **Descarga el Conjunto de Datos MNIST**: Dirígete a la página oficial de MNIST y descarga los siguientes archivos comprimidos:
-    * `train-images-idx3-ubyte.gz`
-    * `train-labels-idx1-ubyte.gz`
-2.  **Descomprime y Organiza**: Asegúrate de que los archivos estén **descomprimidos** (sin la extensión `.gz`) y colócalos en el directorio `data/` de tu proyecto. Los nombres exactos de los archivos deben ser:
-    * `train-images-idx3-ubyte`
-    * `train-labels-idx1-ubyte`
-3.  **Añade tus Propias Imágenes (Opcional)**: Si quieres ver cómo el clasificador se desempeña con tus propios dibujos, coloca imágenes de dígitos en formato PNG (por ejemplo, `0m.png`, `1m.png`, etc.) dentro del directorio `images/`. ¡El programa las redimensionará automáticamente a 28x28 si es necesario!
+1.  **Datos MNIST Incluidos**: Los archivos del conjunto de datos MNIST **ya están incluidos** en el directorio [`data/`](data/) del proyecto:
+    * `train-images-idx3-ubyte` - Imágenes de entrenamiento
+    * `train-labels-idx1-ubyte` - Etiquetas de entrenamiento  
+    * `t10k-images-idx3-ubyte` - Imágenes de prueba
+    * `t10k-labels-idx1-ubyte` - Etiquetas de prueba
+2.  **No Requiere Descarga Adicional**: Los archivos están **descomprimidos y listos para usar**. El programa los cargará automáticamente desde el directorio [`data/`](data/).
+3.  **Añade tus Propias Imágenes (Opcional)**: Si quieres ver cómo el clasificador se desempeña con tus propios dibujos, coloca imágenes de dígitos en formato PNG (por ejemplo, `0m.png`, `1m.png`, etc.) dentro del directorio `images/`. ¡El programa las redimensionará automáticamente a 28x28.
 
 ---
 
@@ -213,28 +214,29 @@ El programa carga automáticamente los datos de MNIST, entrena la red (mostrando
 
 ### Métricas de Evaluación
 
-* **Progreso de Entrenamiento**: Se monitorea el avance por **épocas**, con reportes de progreso cada **1000 muestras** procesadas.
-* **Tiempo de Entrenamiento**: Actualmente **no se mide explícitamente**. Se considera integrar un temporizador para el registro futuro.
-* **Pérdida Promedio**: Se calcula y reporta la **pérdida promedio por época** utilizando la función de **entropía cruzada**.
-* **Precisión de Clasificación**: La **precisión final no se calcula** sobre un conjunto de validación, lo que representa una potencial mejora para una evaluación más robusta.
+* **Tamaño del Dataset**: **30,000 imágenes** utilizadas para entrenamiento (**3,000 por dígito** del 0 al 9).
+* **Épocas de Entrenamiento**: **3 épocas** completadas para el entrenamiento del modelo.
+* **Tiempo de Entrenamiento**: **~45 minutos** de duración total para el entrenamiento completo.
+* **Pérdida Final Promedio**: **~0.0931** alcanzada al finalizar las 3 épocas de entrenamiento.
+* **Precisión en Pruebas Manuales**: **Alta precisión** para la mayoría de dígitos, con **confusión ocasional** entre los dígitos **1, 7 y 9**.
 
 ### Fortalezas y Limitaciones
 
 * **Fortalezas**:
-    * **Implementación Pura C++**: Código desarrollado desde cero con **dependencias mínimas**, facilitando la comprensión interna.
-    * **Arquitectura Modular**: Diseño claro y extensible para futuras adiciones.
+    * **Código Ligero y Educativo**: Implementación en **C++ puro** que facilita la comprensión de los algoritmos internos.
+    * **Dependencias Mínimas**: Sin dependencias pesadas fuera de **Eigen y CMake**, manteniendo la simplicidad del proyecto.
+    * **Arquitectura Modular**: Diseño que permite **cambiar capas, funciones o datasets** fácilmente para futuras extensiones.
 * **Limitaciones**:
-    * **Ejecución Exclusiva en CPU**: Rendimiento **limitado por CPU**, restringiendo la escalabilidad a grandes datasets.
-    * **Ausencia de Paralelización**: No se ha implementado **paralelismo (Epic 4)**, impidiendo una aceleración significativa.
-    * **Falta de Conjunto de Validación**: Impide una evaluación objetiva de la **generalización** y detección de **sobreajuste (overfitting)**.
-
+    * **Sin Paralelización ni GPU**: **No utiliza múltiples núcleos** del procesador ni aceleración por GPU, limitando el rendimiento.
+    * **Entrenamiento Secuencial**: El entrenamiento completo puede **demorar considerablemente** especialmente con datasets grandes.
+    * **Ausencia de Batching Vectorizado**: **Cada imagen se entrena individualmente** en lugar de procesar lotes, reduciendo la eficiencia.
 
 ### Mejoras Futuras
 
-* **Optimización de Álgebra Lineal**: Integrar bibliotecas como **BLAS** para acelerar **operaciones tensoriales** (ej. producto matricial).
-* **Paralelización del Entrenamiento**: Implementar **paralelismo por lotes** (e.g., ThreadPools) o soporte **CUDA** para **aceleración por GPU**.
-* **Persistencia del Modelo**: Añadir funcionalidad para **guardar y cargar modelos entrenados (serialización)**.
-* **Evaluación Robusta**: Incorporar un **conjunto de validación dedicado** para medir la **generalización** y monitorizar el **overfitting**.
+* **Integración de BLAS**: Implementar bibliotecas como **Eigen o OpenBLAS** para **acelerar multiplicaciones de matrices** y operaciones tensoriales.
+* **Paralelización por Lotes**: Desarrollar **batch training** para aprovechar **múltiples núcleos del procesador** y mejorar significativamente el rendimiento.
+* **Validación Automática**: Incorporar **precisión en test set real** y métricas más rigurosas para una evaluación objetiva del modelo.
+* **Aumento y Normalización de Datos**: Implementar técnicas de **data augmentation** y **normalización más robusta** para mejorar la generalización con imágenes externas.
 
 ---
 

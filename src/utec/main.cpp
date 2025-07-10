@@ -65,7 +65,7 @@ int main() {
     // Seleccionar numero de cada digito actual: 7000 (7k para la cantidad exacta de cada numero)
     std::vector<size_t> selected_indices;
     std::array<int, 10> count_per_digit = {0};
-    size_t num_per_digit = 1000; // Trabajamos con 10k datos
+    size_t num_per_digit = 3000; // Trabajamos con 30k datos
 
     // Mezclar los índices para que la selección sea aleatoria
     std::vector<size_t> indices(train_labels.shape()[0]);
@@ -122,8 +122,8 @@ int main() {
     std::cout << "Entrenando la red neuronal..." << std::endl;
     // Convertir los tensores a vectores de tensores para el API actual
     // std::vector<utec::algebra::Tensor> train_images_vec, train_labels_vec; // This block is now moved above
-    // 5 epochs, 0.01 learning rate, 512 batch size
-    classifier.train(train_images_vec, train_labels_vec, 5, 0.01f, 512); 
+    // 3 epochs, 0.01 learning rate, 512 batch size
+    classifier.train(train_images_vec, train_labels_vec, 3, 0.01f, 512); 
     std::cout << "Entrenamiento finalizado." << std::endl;
 
     // Detección automática de images/0m.png a images/9m.png 
