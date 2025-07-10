@@ -111,9 +111,13 @@ El corazón de nuestro clasificador son los datos MNIST. Así es como los obtien
 
 -----
 
-## 🏆Cumplimiento de los epics
+## 🏆 Cumplimiento del Proyecto (¡Más allá de Pong!)
+
+Aunque el enunciado original del proyecto se centraba en un "Pong AI", la infraestructura y el desarrollo de la red neuronal y la biblioteca de álgebra implementadas cumplen con los objetivos fundamentales de los Epics del curso. A continuación, se detalla cómo cada Epic se aborda en este proyecto de clasificación de dígitos MNIST:
 
 ### Epic 1: ✨ Biblioteca Genérica de Álgebra (`utec::algebra::Tensor`)
+
+**Contexto:** Este Epic se centra en la construcción de una base sólida para cualquier operación numérica compleja, esencial para el funcionamiento interno de una red neuronal. Nuestra implementación del `Tensor` busca replicar la versatilidad de librerías como NumPy en C++.
 
 | Requisito del Enunciado                                        | Detalles de Implementación                                                                                                                                                                                                                                                                                                  |
 | :------------------------------------------------------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -123,10 +127,12 @@ El corazón de nuestro clasificador son los datos MNIST. Así es como los obtien
 | `reshape()` (preservando elementos)                            | La clase `Tensor` no tiene un método `reshape` explícito.                                                                                                                                                                                                                                                                 |
 | `fill()`                                                       | Permite rellenar el tensor con un valor escalar.                                                                                                                                                                                                                                                                           |
 | Operadores aritméticos (`+`, `-`, `*` escalar, `*` tensor)    | `+` y `-` implementados. `*` escalar implementado. El producto matricial se maneja con `matmul()`. El "broadcasting implícito" no está implementado de forma genérica en `operator*`, pero la multiplicación matricial lo maneja en el contexto de la red neuronal.                                                      |
-| `transpose_2d()` (para Rank=2)                                 | Implementada una función `transpose` separada dentro de la clase `Dense` que utiliza para transponer tensores 2D.                                                                                                                                                                                                        |
+| `transpose_2d()` (para Rank=2)                                 | Implementada una función `transpose` separada dentro de la clase `Dense` que utiliza para transponer tensores 2D.                                                                                                                                                                         |
 
 ---
 ### Epic 2: ✨ Red Neuronal Full (`utec::nn`)
+
+**Contexto:** Este Epic se enfoca en la construcción del core de la inteligencia artificial: el framework de redes neuronales, incluyendo sus componentes esenciales como capas y funciones de activación/pérdida.
 
 | Requisito del Enunciado                                        | Detalles de Implementación                                                                                                                                                                                                                                                                                                    |
 | :------------------------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
@@ -138,8 +144,11 @@ El corazón de nuestro clasificador son los datos MNIST. Así es como los obtien
 
 ---
 ### Epic 3: ✨ Agente (`utec::agent::DigitClassifier`)
+
+**Contexto:** Originalmente concebido para un agente de Pong, este Epic se adapta para la creación de un clasificador de dígitos, demostrando cómo la red neuronal puede ser encapsulada y utilizada para una tarea específica de percepción.
+
 | Requisito del Enunciado                                        | Detalles de Implementación                                                                                                                                                                                                                                                                  |
-| :------------------------------------------------------------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| :------------------------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | Clase `PongAgent` (adaptado a `DigitClassifier`)              | La clase `DigitClassifier` cumple el rol de `PongAgent`, pero para el dominio de clasificación de dígitos.                                                                                                                                                                                       |
 | Recibir `State` (adaptado a `Tensor` de imagen)               | El método `predict` del `DigitClassifier` recibe un `utec::algebra::Tensor` que representa la imagen (equivalente al `State` del Pong).                                                                                                                                                                |
 | Decidir acción (`act()`, adaptado a `predict()`)              | El método `predict` de `DigitClassifier` devuelve el índice de la clase predicha (el dígito), que es análogo a la "acción" en el contexto del Pong.                                                                                                                                                             |
@@ -148,22 +157,21 @@ El corazón de nuestro clasificador son los datos MNIST. Así es como los obtien
 ---
 ### Epic 4: ✨ Paralelismo y CUDA Opcional
 
+**Contexto:** Este Epic explora la optimización del rendimiento de la red neuronal a través de la computación paralela, incluyendo el uso de hilos o la aceleración por GPU (CUDA).
+
 | Requisito del Enunciado                                        | Detalles de Implementación                                                                                                                                                                                                                                                                  |
-| :------------------------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| :------------------------------------------------------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `ThreadPool` y cola concurrente para inferencias             | Esta funcionalidad no se ha incluido en la implementación actual.                                                                                                                                                                                                                           |
 | Soporte CUDA                                                   | La implementación es puramente en CPU.                                                                                                                                                                                                                                                      |
 
 ---
 ### Epic 5: ✨ Entrenamiento, Validación y Documentación
 
+**Contexto:** Este Epic abarca las fases cruciales del ciclo de vida de un modelo de Machine Learning: cómo se entrena, cómo se evalúa su rendimiento y cómo se documenta para su comprensión y uso.
+
 | Requisito del Enunciado                                        | Detalles de Implementación                                                                                                                                                                                                                                                                  |
-| :------------------------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| :------------------------------------------------------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Pipeline de entrenamiento básico                               | El `main.cpp` y la clase `DigitClassifier` implementan un ciclo de entrenamiento básico con los datos de MNIST.                                                                                                                                                                       |
 | Serialización del modelo                                       | La capacidad de guardar y cargar el modelo entrenado no está implementada.                                                                                                                                                                                                                   |
 | Validación (Conjunto separado)                                 | El código actual solo usa datos de entrenamiento; no hay un conjunto de validación separado.                                                                                                                                                                                                 |
-| Documentación                                                  | Este `README.md` cumple con el objetivo de documentación, explicando la estructura, el uso y el cumplimiento de los requisitos. 
-
----
-
-
-
+| Documentación                                                  | Este `README.md` cumple con el objetivo de documentación, explicando la estructura, el uso y el cumplimiento de los requisitos.                                                                                                                                                                  |
