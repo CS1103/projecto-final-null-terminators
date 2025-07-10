@@ -74,7 +74,7 @@ La organización del código está pensada para la modularidad y la claridad:
 
 Para compilar y ejecutar este proyecto, necesitarás lo siguiente:
 
-  * **Compilador C++20**: Asegúrate de tener una versión reciente de tu compilador preferido que soporte C++20 (por ejemplo, GCC 10+ o Clang 10+).
+  * **Compilador C++20**: Asegúrate de tener una versión reciente de tu compilador preferido que soporte C++20.
   * **CMake**: Indispensable para la gestión del proyecto y la compilación. Se requiere la versión 3.10 o superior.
 
 ### Compilación del Proyecto
