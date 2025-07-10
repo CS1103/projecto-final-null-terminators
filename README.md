@@ -3,7 +3,7 @@
 ---
 # 🧠 Proyecto Final 2025-1: AI Neural Network
 
-Este proyecto es una inmersión profunda en el mundo del **Machine Learning y las Redes Neuronales**, implementadas completamente desde cero en **C++**. Nuestro objetivo principal es la clasificación de dígitos escritos a mano utilizando el famoso conjunto de datos **MNIST**.
+Este informe detalla el desarrollo de un agente de Inteligencia Artificial para jugar Pong utilizando C++. El proyecto se estructura en varios "Epics" o módulos clave, que incluyen la creación de una biblioteca genérica de álgebra, una red neuronal completa, un agente Pong basado en la red, y aspectos de paralelismo, entrenamiento y documentación.
 
 ---
 
@@ -68,24 +68,54 @@ La organización del código está pensada para la modularidad y la claridad:
 ```                         
 ---
 
-## 🚀Cómo Empezar
+Tienes razón. La sección actual es un poco seca y podría ser más invitadora y clara, especialmente en la parte de los requisitos. Además, es importante especificar la versión de C++ (`C++20`).
 
-### Requisitos
+Aquí te propongo una versión mejorada para la sección "Cómo Empezar", que la hace más dinámica, relevante y fácil de seguir:
 
-* **Compilador C++**
-* **CMake**: Versión 3.10 o superior.
+-----
 
-### Preparación de Datos
+## 🚀 Para empezar
 
-Antes de ejecutar, necesitas los datos MNIST:
+### ⚙️ Requisitos del Sistema
 
-1.  **Descarga los archivos MNIST**: Consíguelos desde la página oficial de MNIST:
-    * `train-images-idx3-ubyte.gz`
-    * `train-labels-idx1-ubyte.gz`
-2.  **Descomprime**: Asegúrate de que los archivos estén descomprimidos (sin `.gz`) y colócalos en el directorio `data/` del proyecto. Los nombres de archivo deben ser `train-images-idx3-ubyte` y `train-labels-idx1-ubyte`.
-3.  **Imágenes de Prueba (Opcional pero recomendado)**: Si deseas probar la funcionalidad de clasificación de PNG, coloca algunas imágenes de dígitos (por ejemplo, `0m.png` a `9m.png`) en el directorio `images/`.
+Para compilar y ejecutar este proyecto, necesitarás lo siguiente:
 
----
+  * **Compilador C++20**: Asegúrate de tener una versión reciente de tu compilador preferido que soporte C++20 (por ejemplo, GCC 10+ o Clang 10+).
+  * **CMake**: Indispensable para la gestión del proyecto y la compilación. Se requiere la versión 3.10 o superior.
+
+### 🏗️ Compilación del Proyecto
+
+Una vez que tengas los requisitos, compilar es pan comido:
+
+```bash
+mkdir build         # Crea un directorio para la compilación
+cd build            # Navega al directorio 'build'
+cmake ..            # Configura el proyecto usando CMake
+make                # Compila el código fuente
+```
+
+Esto generará el ejecutable `digit_classifier` (o similar, dependiendo de tu `CMakeLists.txt`) dentro del directorio `build`.
+
+### 💾 Preparación de los Datos
+
+El corazón de nuestro clasificador son los datos MNIST. Así es como los obtienes y los preparas:
+
+1.  **Descarga el Conjunto de Datos MNIST**:
+    Dirígete a la página oficial de MNIST y descarga los siguientes archivos comprimidos:
+
+      * `train-images-idx3-ubyte.gz`
+      * `train-labels-idx1-ubyte.gz`
+
+2.  **Descomprime y Organiza**:
+    Asegúrate de que los archivos estén **descomprimidos** (sin la extensión `.gz`) y colócalos en el directorio `data/` de tu proyecto. Los nombres exactos de los archivos deben ser:
+
+      * `train-images-idx3-ubyte`
+      * `train-labels-idx1-ubyte`
+
+3.  **Añade tus Propias Imágenes (Opcional)**:
+    Si quieres ver cómo el clasificador se desempeña con tus propios dibujos, coloca imágenes de dígitos en formato PNG (por ejemplo, `0m.png`, `1m.png`, etc.) dentro del directorio `images/`. ¡El programa las redimensionará automáticamente a 28x28 si es necesario\!
+
+-----
 
 ## 🏆Cumplimiento de los epics
 
