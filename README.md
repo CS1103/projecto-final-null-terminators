@@ -113,8 +113,6 @@ El corazón de nuestro clasificador son los datos MNIST. Así es como los obtien
 
 ## 🏆 Cumplimiento del Proyecto 
 
-Aunque el enunciado original del proyecto se centraba en un "Pong AI", la infraestructura y el desarrollo de la red neuronal y la biblioteca de álgebra implementadas cumplen con los objetivos fundamentales de los Epics del curso. A continuación, se detalla cómo cada Epic se aborda en este proyecto de clasificación de dígitos MNIST:
-
 ### Epic 1: Biblioteca Genérica de Álgebra (`utec::algebra::Tensor`)
 
 **Contexto:** Este Epic se centra en la construcción de una base sólida para cualquier operación numérica compleja, esencial para el funcionamiento interno de una red neuronal. Nuestra implementación del `Tensor` busca replicar la versatilidad de librerías como NumPy en C++.
