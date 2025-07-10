@@ -1,7 +1,7 @@
 ## Programación III (CS2013) - Laboratorio 1.02 - 2025 - 1
 
 ---
-# 🧠 Reconocimiento de Dígitos MNIST con Redes Neuronales en C++
+# 🧠 Proyecto Final 2025-1: AI Neural Network
 
 Este proyecto es una inmersión profunda en el mundo del **Machine Learning y las Redes Neuronales**, implementadas completamente desde cero en **C++**. Nuestro objetivo principal es la clasificación de dígitos escritos a mano utilizando el famoso conjunto de datos **MNIST**.
 
